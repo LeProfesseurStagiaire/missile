@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/marker_player.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "death_mark_player"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="death_mark" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.933333 )
+z_index = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+autoplay = "death_mark_player"
+anims/death_mark_player = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="Node2D"]
+editor/display_folded = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/Node2D"]
+margin_left = -2428.8
+margin_top = -2.5
+margin_right = 2426.2
+margin_bottom = 2.5
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D/Node2D"]
+margin_left = -2.5
+margin_top = 2134.0
+margin_right = 4852.5
+margin_bottom = 2139.0
+rect_rotation = -89.9999
+color = Color( 0, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.448, 0.448 )
+texture = ExtResource( 1 )

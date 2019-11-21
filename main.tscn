@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://timer_score.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/Bungee-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 200
+use_filter = true
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/Bungee-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+use_filter = true
+font_data = SubResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 542.043, 459.446 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="timer_score" parent="." instance=ExtResource( 3 )]
+position = Vector2( -27.1311, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 512, 512 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="color_border" type="Node2D" parent="Sprite"]
+position = Vector2( -512, -512 )
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite/color_border"]
+margin_left = -2265.0
+margin_top = -1728.0
+margin_right = -2204.0
+margin_bottom = -1563.0
+rect_scale = Vector2( 37.6829, 25.9247 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="Sprite/color_border"]
+margin_left = 999.0
+margin_top = -180.0
+margin_right = 1065.0
+margin_bottom = -83.0
+rect_scale = Vector2( 37.6829, 25.9247 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Sprite/color_border"]
+margin_left = 3493.0
+margin_top = 988.0
+margin_right = 3534.0
+margin_bottom = 1145.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 37.6829, 25.9247 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Sprite/color_border"]
+margin_left = 3470.0
+margin_top = -1748.0
+margin_right = 3517.0
+margin_bottom = -1557.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 37.6829, 25.9247 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="start_txt" type="Node2D" parent="."]
+editor/display_folded = true
+z_index = 3
+
+[node name="wave_selected_text" type="Label" parent="start_txt"]
+modulate = Color( 1, 1, 1, 0.333333 )
+margin_left = -146.474
+margin_top = 378.822
+margin_right = 2853.53
+margin_bottom = 587.822
+rect_scale = Vector2( 0.433619, 0.433619 )
+custom_fonts/font = SubResource( 2 )
+text = "WAVE : 1"
+align = 1
+
+[node name="start_message_sprite" type="Label" parent="start_txt"]
+modulate = Color( 1, 1, 1, 0.560784 )
+margin_left = 238.102
+margin_top = 283.57
+margin_right = 1310.1
+margin_bottom = 482.57
+custom_fonts/font = SubResource( 4 )
+text = "Click to continue"
+
+[node name="color" type="Node2D" parent="."]
+z_index = -3
+
+[node name="ColorRect" type="ColorRect" parent="color"]
+margin_right = 28.0
+margin_bottom = 40.0
+rect_scale = Vector2( 37.6829, 25.9247 )
+color = Color( 0.335938, 0, 0, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 512 )
+current = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
