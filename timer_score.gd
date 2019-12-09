@@ -5,6 +5,8 @@ var can_count = false
 var new_hight_score = false
 var goal_time
 
+var dead_sentence = ["wtf, you died !", "haha, you died", "want to beat me ?","try agan !!","you can't do it...","want to see the end ?","LOL !!"]
+
 func _ready():
 	set_process(false)
 #	$hight_score.text = str("best :" + str(global.best_score))
@@ -45,3 +47,4 @@ func stop():
 	if ! global.wave_unlocked_this_turn:
 		global.wave_unlocked_this_turn = false
 	can_count = false
+	$dead.text = dead_sentence[int(rand_range(0,dead_sentence.size()))]

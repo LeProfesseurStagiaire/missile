@@ -1,7 +1,7 @@
 extends Node
 
 var best_score = 0
-onready var wave_unlocked = 1
+onready var wave_unlocked = 11
 var wave_selected = 1
 onready var max_wave = wave.size()
 var caract_list = ["speed","scale_ratio","rotation_speed","next_spawn_time"]

@@ -33,7 +33,6 @@ position = Vector2( 542.043, 459.446 )
 position = Vector2( -27.1311, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 512, 512 )
 z_index = 1
 texture = ExtResource( 4 )
@@ -42,10 +41,10 @@ texture = ExtResource( 4 )
 position = Vector2( -512, -512 )
 
 [node name="ColorRect2" type="ColorRect" parent="Sprite/color_border"]
-margin_left = -2265.0
-margin_top = -1728.0
-margin_right = -2204.0
-margin_bottom = -1563.0
+margin_left = -2245.27
+margin_top = -1724.0
+margin_right = -2185.27
+margin_bottom = -1559.0
 rect_scale = Vector2( 37.6829, 25.9247 )
 color = Color( 0, 0, 0, 1 )
 
@@ -59,17 +58,17 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect5" type="ColorRect" parent="Sprite/color_border"]
 margin_left = 3493.0
-margin_top = 988.0
+margin_top = 1004.0
 margin_right = 3534.0
-margin_bottom = 1145.0
+margin_bottom = 1161.0
 rect_rotation = 89.9999
 rect_scale = Vector2( 37.6829, 25.9247 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect4" type="ColorRect" parent="Sprite/color_border"]
-margin_left = 3470.0
+margin_left = 3471.59
 margin_top = -1748.0
-margin_right = 3517.0
+margin_right = 3518.59
 margin_bottom = -1557.0
 rect_rotation = 89.9999
 rect_scale = Vector2( 37.6829, 25.9247 )
@@ -100,6 +99,7 @@ custom_fonts/font = SubResource( 4 )
 text = "Click to continue"
 
 [node name="color" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -3
 
 [node name="ColorRect" type="ColorRect" parent="color"]
@@ -111,4 +111,5 @@ color = Color( 0.335938, 0, 0, 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 512 )
 current = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
