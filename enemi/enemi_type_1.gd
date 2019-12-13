@@ -9,6 +9,7 @@ onready var radar = load("res://enemi/radar_enemi.tscn").instance()
 onready var d_mark = load("res://enemi/death_mark_enemi.tscn").instance()
 
 func _ready():
+	$Area2D/CollisionShape2D.shape.set_extents((($Sprite.get_rect().size) * $Sprite.scale) /2)
 	radar.position = Vector2(get_viewport_rect().size.x / 2,get_viewport_rect().size.x / 2)
 	get_tree().get_current_scene().add_child(radar)
 	radar.look_at(position)

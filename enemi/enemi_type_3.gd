@@ -9,6 +9,7 @@ onready var radar = load("res://enemi/radar_enemi.tscn").instance()
 onready var d_mark = load("res://enemi/death_mark_enemi.tscn").instance()
 
 func _ready():
+	$Area2D/CollisionShape2D.shape.set_extents((($Sprite.get_rect().size) * $Sprite.scale) /2)
 	set_process(false)
 	radar.position = Vector2(get_viewport_rect().size.x / 2,get_viewport_rect().size.x / 2)
 	get_tree().get_current_scene().add_child(radar)
@@ -33,7 +34,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	
 func die():
 	d_mark.position = position
-	get_tree().get_current_scene().add_child(d_mark)
+	get_tree().get_current_scene().call_deferred("add_child",d_mark)
 	queue_free()
 
 func _on_Area2D_area_entered(area):
